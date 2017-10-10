@@ -7,4 +7,4 @@ RUN pip install -r requirements.txt
 
 WORKDIR /usr/src/verpy/destination
 
-ENTRYPOINT ["python", "../verpy/verpy.py"]
+ENTRYPOINT ["python", "../verpy.py"]
