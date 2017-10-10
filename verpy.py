@@ -1,7 +1,8 @@
 """Main verpy code module"""
 
 import sys
-import file_ops
+from verpy import file_ops
+from version import VERSION
 
 def display_app_help():
     """Display app usage"""
@@ -69,7 +70,7 @@ def main():
     if cli_args['app_help']:
         display_app_help()
     elif cli_args['app_version']:
-        print('verpy v1.0.0')
+        print('verpy v{}'.format(VERSION))
     elif cli_args['version']:
         display_or_change_version(cli_args['version'])
     elif cli_args['init']:

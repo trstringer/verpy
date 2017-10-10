@@ -2,7 +2,7 @@
 
 import os
 import re
-from version import Version
+from verpy.version import Version
 
 def version_filename():
     """Retrieve the path and filename for the destination version file"""

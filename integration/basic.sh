@@ -13,7 +13,7 @@ mkdir integration/test_dir
 cd integration/test_dir
 
 echo running init integration test
-python ../../verpy/verpy.py init
+python ../../verpy.py init
 
 if [[ ! -f version.py ]]; then
     echo version file expected but not existing
@@ -21,7 +21,7 @@ if [[ ! -f version.py ]]; then
 fi
 
 echo displaying current version
-python ../../verpy/verpy.py version
+python ../../verpy.py version
 
 if [[ ! -f version.py ]]; then
     echo displaying current version failed
@@ -29,13 +29,13 @@ if [[ ! -f version.py ]]; then
 fi
 
 echo running version major increment integration test
-python ../../verpy/verpy.py version major
+python ../../verpy.py version major
 
 if [[ $? -ne 0 ]]; then
     echo failed incrementing version major
     exit 1
 else
-    VERSION_OUTPUT=$(python ../../verpy/verpy.py version)
+    VERSION_OUTPUT=$(python ../../verpy.py version)
     echo $VERSION_OUTPUT
     EXPECTED="2.0.0"
     validate_version "$VERSION_OUTPUT" "$EXPECTED"
@@ -46,13 +46,13 @@ else
 fi
 
 echo running version minor increment integration test
-python ../../verpy/verpy.py version minor
+python ../../verpy.py version minor
 
 if [[ $? -ne 0 ]]; then
     echo failed incrementing version minor
     exit 1
 else
-    VERSION_OUTPUT=$(python ../../verpy/verpy.py version)
+    VERSION_OUTPUT=$(python ../../verpy.py version)
     echo $VERSION_OUTPUT
     EXPECTED="2.1.0"
     validate_version "$VERSION_OUTPUT" "$EXPECTED"
@@ -63,13 +63,13 @@ else
 fi
 
 echo running version patch increment integration test
-python ../../verpy/verpy.py version patch
+python ../../verpy.py version patch
 
 if [[ $? -ne 0 ]]; then
     echo failed incrementing version patch
     exit 1
 else
-    VERSION_OUTPUT=$(python ../../verpy/verpy.py version)
+    VERSION_OUTPUT=$(python ../../verpy.py version)
     echo $VERSION_OUTPUT
     EXPECTED="2.1.1"
     validate_version "$VERSION_OUTPUT" "$EXPECTED"
