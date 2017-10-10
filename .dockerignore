@@ -1,0 +1,9 @@
+venv/
+.coverage
+*.swp
+install.sh
+__pycache__/
+README.md
+*.pyc
+.git/
+.gitignore
