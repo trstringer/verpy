@@ -11,19 +11,17 @@ pipeline {
         sh "docker build -t ${env.DOCKER_REPOSITORY}:${env.BUILD_VERSION} -t ${env.DOCKER_REPOSITORY}:latest ."
         echo "installing virtual environment"
         sh "python3 -m venv venv"
-        sh ". venv/bin/activate"
-        sh "printenv"
-        sh "pip install -r requirements.txt"
+        sh ". venv/bin/activate && pip install -r requirements.txt"
       }
     }
     stage('Unit Tests') {
       steps {
-        sh "pytest"
+        sh ". venv/bin/activate && pytest"
       }
     }
     stage('Integration Tests') {
       steps {
-        sh "integration/runner.sh"
+        sh ". venv/bin/activate && integration/runner.sh"
       }
     }
     stage('Deliver') {
