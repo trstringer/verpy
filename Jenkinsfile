@@ -12,6 +12,7 @@ pipeline {
         echo "installing virtual environment"
         sh "python3 -m venv venv"
         sh ". venv/bin/activate"
+        sh "printenv"
         sh "pip install -r requirements.txt"
       }
     }
