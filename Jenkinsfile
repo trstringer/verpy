@@ -22,6 +22,7 @@ pipeline {
     stage('Integration Tests') {
       steps {
         sh ". venv/bin/activate && integration/runner.sh"
+        sh "docker run --rm -v \$(pwd):/usr/src/verpy/destination trstringer/verpy:latest --version"
       }
     }
     stage('Deliver') {
